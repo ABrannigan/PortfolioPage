@@ -1,0 +1,165 @@
+/* {
+	outline: 1px solid red !important;
+}*/
+
+body{
+  background: #333;
+  margin: 0;
+  color: #ffff;
+  font-family: 'Segoe UI', Tahoma, Geneva,Verdana,sans-serif;
+}
+
+/*set after sudo element*/
+.showcase::after{
+  content: '';
+  height: 100vh;
+  width: 100%;
+  background-image: url(./images/work_silouette.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display:block;
+  filter:blur(10px);
+  -webkit-filter:blur(10px);
+  transition: all 1000ms;
+
+}
+
+.showcase:hover::after{
+  filter:blur(0px);
+  -webkit-filter:blur(0px);
+
+}
+
+.showcase:hover .content{
+	filter: blur(2px);
+	-webkit-filter: blur(2px);
+}
+
+.content {
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  margin-top: 105px;
+  margin-left: -145px;
+  width: 300px;
+  height: 350px;
+  text-align: center;
+  transition: all 1000ms;
+
+}
+
+.content .logo{
+	height: 200px;
+  width: 223px;
+	margin-bottom: .5rem;
+}
+
+.content .title{
+  font-size: 2rem;
+	margin-top: .5rem;
+}
+
+.content .text{
+  line-height: 1.5;
+	font-size: 1rem;
+	margin-top: .3rem;
+	padding: inherit;
+}
+
+.container{
+	 max-width: 90%;
+	 margin: auto;
+	 overflow: hidden;
+	 padding: 3rem 1rem;
+
+ }
+
+ .container p{
+ 	padding: 1rem
+ }
+
+
+.grid-3{
+	display:	grid;
+	grid-template-columns: repeat(3, 1fr) ;
+
+}
+
+.grid-2{
+	display:	grid;
+	grid-template-columns: repeat(2, 1fr) ;
+
+}
+
+.grid-4{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr) ;
+  /* grid-template-columns: 1fr 1fr 1fr; */
+	/* grid-template-columns: repeat( auto-fit, minmax(25%, 1fr) ); */
+}
+
+.center{
+	text-align: center;
+}
+
+.background-dark{
+	background: #333;
+  color: #f4f4f4;
+
+}
+
+.background-light{
+	background: #f4f4f4;
+  color: #333;
+}
+
+
+footer{
+	margin: 0;
+}
+
+/* Small Screens */
+@media (max-width: 560px) {
+  .showcase::after {
+    height: 50vh;
+  }
+
+  .content {
+    top: 5%;
+    margin-top: 5px;
+  }
+
+  .content .logo {
+    height: 140px;
+    width: 140px;
+  }
+
+  .content .text {
+    display: none;
+  }
+
+	.grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .services div {
+    border-bottom: #333 dashed 1px;
+    padding: 1.2rem 1rem;
+  }
+}
+
+/* Landscape */
+@media (max-height: 500px) {
+  .content .title,
+  .content .text {
+    display: none;
+  }
+
+  .content {
+    top: 0;
+  }
+}
